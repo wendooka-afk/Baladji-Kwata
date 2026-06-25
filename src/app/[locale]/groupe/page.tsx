@@ -5,7 +5,6 @@ import { getContent } from "@/i18n/content";
 import { seoAlternates } from "@/i18n/seo";
 import PageHeader from "@/components/PageHeader";
 import About from "@/components/About";
-import History from "@/components/History";
 import Members from "@/components/Members";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -26,7 +25,6 @@ export default async function GroupePage({ params }: { params: Promise<{ locale:
     <main>
       <PageHeader {...t.pageHeaders.group} />
       <About t={t.about} />
-      <History t={t.history} />
       <Members locale={locale as Locale} t={t.members} />
     </main>
   );

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { locales, type Locale } from "./config";
-import { SOCIALS, ALBUM } from "./content";
+import { SOCIALS, ALBUM, CONTACT } from "./content";
 
 /** Canonical production origin. Update if the domain changes. */
 export const SITE_URL = "https://baladjikwata.com";
@@ -40,6 +40,13 @@ export function musicGroupJsonLd() {
       name: "Ngaoundéré, Adamaoua, Cameroun",
     },
     member: members.map((name) => ({ "@type": "Person", name })),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "booking",
+      email: CONTACT.email,
+      telephone: CONTACT.phone1,
+      areaServed: "CM",
+    },
     album: {
       "@type": "MusicAlbum",
       name: `${ALBUM.title} (${ALBUM.subtitle})`,

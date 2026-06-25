@@ -75,6 +75,13 @@ export const Cart = ({ className }: P) => (
   </svg>
 );
 
+export const Download = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5" />
+    <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+  </svg>
+);
+
 export const Arrow = ({ className }: P) => (
   <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M5 12h14M13 6l6 6-6 6" />

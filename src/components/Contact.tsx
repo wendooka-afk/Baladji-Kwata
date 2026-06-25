@@ -6,8 +6,6 @@ import { SOCIALS, CONTACT } from "@/i18n/content";
 import Reveal from "./Reveal";
 import { Phone, Mail, Spotify, Apple, YouTube, Instagram, Facebook, TikTok, Arrow } from "./Icons";
 
-const BOOKING_EMAIL = "bldkindustrie@gmail.com";
-
 export default function Contact({ t, bare }: { t: Content["contact"]; bare?: boolean }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +15,7 @@ export default function Contact({ t, bare }: { t: Content["contact"]; bare?: boo
     e.preventDefault();
     const subject = encodeURIComponent(`Booking — ${name || "Demande"}`);
     const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
-    window.location.href = `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
   }
 
   const socials = [
@@ -53,6 +51,10 @@ export default function Contact({ t, bare }: { t: Content["contact"]; bare?: boo
               </a>
               <a href={phoneHref(CONTACT.phone2)} className="flex items-center gap-3 hover:text-[var(--color-gold)] transition-colors">
                 <Phone className="w-5 h-5 text-[var(--color-gold)]" /> {CONTACT.phone2}
+              </a>
+              <div className="text-sm text-[var(--color-muted)] pt-1">{t.emailLabel}</div>
+              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 hover:text-[var(--color-gold)] transition-colors">
+                <Mail className="w-5 h-5 text-[var(--color-gold)]" /> {CONTACT.email}
               </a>
               <div className="text-sm text-[var(--color-muted)] pt-1">{CONTACT.city}</div>
             </div>

@@ -54,6 +54,21 @@ export default function Achievements({ t, bare }: { t: Content["achievements"]; 
           </div>
         </div>
 
+        {/* other highlights */}
+        <Reveal className="mt-14">
+          <p className="eyebrow mb-5">{t.highlightsTitle}</p>
+          <ul className="grid sm:grid-cols-3 gap-3">
+            {t.highlights.map((h) => (
+              <li
+                key={h}
+                className="card p-4 text-sm text-[var(--color-muted)] leading-relaxed"
+              >
+                {h}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
         {/* press proofs */}
         <Reveal className="mt-14">
           <p className="eyebrow mb-5">{t.pressTitle}</p>
