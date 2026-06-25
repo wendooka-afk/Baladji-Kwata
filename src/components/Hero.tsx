@@ -12,7 +12,7 @@ export default function Hero({ locale, t }: { locale: Locale; t: Content["hero"]
       <div className="absolute inset-0">
         <Image
           src={t.image}
-          alt="Baladji Kwata"
+          alt={`Baladji Kwata — ${t.tagline}`}
           fill
           priority
           sizes="100vw"

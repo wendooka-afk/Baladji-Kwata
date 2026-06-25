@@ -17,6 +17,90 @@ export function seoAlternates(locale: Locale, path: string): Metadata["alternate
   return { canonical: `/${locale}${sub}`, languages };
 }
 
+/**
+ * Full page metadata: title, description, canonical/hreflang, Open Graph and
+ * Twitter card — all page-specific. Without this, pages only inherited the
+ * generic homepage OG title/description/image, so every shared link (Music,
+ * Palmarès, Contact...) showed the same social-share card.
+ */
+export function pageMetadata({
+  locale,
+  path,
+  title,
+  description,
+  image,
+}: {
+  locale: Locale;
+  path: string;
+  title: string;
+  description: string;
+  image: string;
+}): Metadata {
+  const fullTitle = `${title} — Baladji Kwata`;
+  return {
+    title: fullTitle,
+    description,
+    alternates: seoAlternates(locale, path),
+    openGraph: {
+      title: fullTitle,
+      description,
+      url: path ? `/${locale}/${path}` : `/${locale}`,
+      siteName: "Baladji Kwata",
+      type: "website",
+      locale: locale === "fr" ? "fr_CM" : "en_US",
+      images: [{ url: image, width: 1200, height: 1500 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description,
+      images: [image],
+    },
+  };
+}
+
+/** Person JSON-LD for a member bio page — helps both rich results and AI/GEO citations. */
+export function personJsonLd(
+  member: { slug: string; name: string; role: string; img: string; metaDescription: string },
+  locale: Locale,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.role,
+    description: member.metaDescription,
+    image: `${SITE_URL}${member.img}`,
+    url: `${SITE_URL}/${locale}/groupe/${member.slug}`,
+    memberOf: { "@type": "MusicGroup", name: "Baladji Kwata", url: SITE_URL },
+  };
+}
+
+/** BreadcrumbList JSON-LD — site hierarchy for rich results and AI crawlers. */
+export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: `${SITE_URL}/${locale}${it.path ? `/${it.path}` : ""}`,
+    })),
+  };
+}
+
+/** Official trophy names — identical strings in FR/EN, kept here to avoid a locale dependency. */
+const AWARD_TITLES = [
+  "Cameroon Music Evolution 2023",
+  "Castel Beer Talent 2023",
+  "Garaya d'Or 2023",
+  "Garaya d'Or 2024",
+  "Sahel Award 2023",
+  "Sahel Award 2024",
+  "Afrique Créa 2023",
+];
+
 /** Locale-independent JSON-LD describing the band (schema.org/MusicGroup). */
 export function musicGroupJsonLd() {
   const members = [
@@ -40,6 +124,7 @@ export function musicGroupJsonLd() {
       name: "Ngaoundéré, Adamaoua, Cameroun",
     },
     member: members.map((name) => ({ "@type": "Person", name })),
+    award: AWARD_TITLES,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "booking",

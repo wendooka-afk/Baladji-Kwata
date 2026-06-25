@@ -209,30 +209,45 @@ export function getContent(locale: Locale) {
         title: fr ? "Le groupe" : "The band",
         subtitle: fr ? "Une famille, une voix, un quartier." : "One family, one voice, one neighborhood.",
         image: "/images/hero/Kwata-1.jpg",
+        metaDescription: fr
+          ? "Découvrez Baladji Kwata : groupe de musique urbaine né en 2007 à Ngaoundéré (Cameroun). Histoire, biographie et membres du collectif derrière BLDK Industrie."
+          : "Meet Baladji Kwata: an urban music group born in 2007 in Ngaoundéré, Cameroon. History, biography and members of the collective behind BLDK Industrie.",
       },
       music: {
         eyebrow: fr ? "La musique" : "The music",
         title: fr ? "Musique" : "Music",
         subtitle: fr ? "Clips, sons et album — partout en streaming." : "Videos, tracks and album — everywhere on streaming.",
         image: "/images/hero/DSC07665.png",
+        metaDescription: fr
+          ? "Écoutez les clips et titres officiels de Baladji Kwata : « On est venu gagner », « Tchi-Tchi », « Travailler »… et l'album « DJé Mōne », sur Spotify, Apple Music et YouTube."
+          : "Stream Baladji Kwata's official videos and tracks — \"On est venu gagner\", \"Tchi-Tchi\", \"Travailler\"… plus the album \"DJé Mōne\", on Spotify, Apple Music and YouTube.",
       },
       achievements: {
         eyebrow: fr ? "Reconnaissance" : "Recognition",
         title: fr ? "Palmarès" : "Track record",
         subtitle: fr ? "Des victoires qui dépassent les frontières." : "Wins that cross borders.",
         image: "/images/hero/groupe_can_maillots.jpg",
+        metaDescription: fr
+          ? "Le palmarès de Baladji Kwata : Cameroon Music Evolution, Garaya d'Or, Sahel Award, Afrique Créa… et une finale à La Manie Musicale aux États-Unis."
+          : "Baladji Kwata's track record: Cameroon Music Evolution, Garaya d'Or, Sahel Award, Afrique Créa awards… and a finalist run at La Manie Musicale in the USA.",
       },
       concerts: {
         eyebrow: fr ? "Sur scène" : "On stage",
         title: fr ? "Concerts & événements" : "Concerts & events",
         subtitle: fr ? "Une bête de scène, du Nord au reste du pays." : "A live powerhouse, from the North across the country.",
         image: "/images/hero/DSC07813.jpg",
+        metaDescription: fr
+          ? "Concerts, tournées et événements de Baladji Kwata : du Baladji Djouldé Tour aux scènes de Ngaoundéré, Garoua et Maroua. Affiches et dates."
+          : "Baladji Kwata's concerts, tours and events — from the Baladji Djouldé Tour to stages in Ngaoundéré, Garoua and Maroua. Posters and dates.",
       },
       gallery: {
         eyebrow: fr ? "En images" : "In pictures",
         title: fr ? "Galerie" : "Gallery",
         subtitle: fr ? "Le groupe, en coulisses et en lumière." : "The band, backstage and in the spotlight.",
         image: "/images/hero/DSC07925.jpg",
+        metaDescription: fr
+          ? "La galerie photo officielle de Baladji Kwata : le groupe sur scène, en studio et en coulisses — musique urbaine du Cameroun."
+          : "Baladji Kwata's official photo gallery — the group on stage, in the studio and backstage, Cameroon's urban music scene.",
       },
       press: {
         eyebrow: fr ? "Pour les médias" : "For the media",
@@ -241,12 +256,18 @@ export function getContent(locale: Locale) {
           ? "Biographie, palmarès, photos officielles et contacts — tout pour parler de Baladji Kwata."
           : "Biography, achievements, official photos and contacts — everything to cover Baladji Kwata.",
         image: "/images/hero/group-4.jpg",
+        metaDescription: fr
+          ? "Espace presse de Baladji Kwata : dossier de presse à télécharger, biographie, palmarès et contacts pour la presse et les médias."
+          : "Baladji Kwata press kit: downloadable press book, biography, awards and media contacts for press and interview requests.",
       },
       contact: {
         eyebrow: "Booking",
         title: fr ? "Réservez le groupe" : "Book the band",
         subtitle: fr ? "Concerts, festivals, partenariats de marque." : "Concerts, festivals, brand partnerships.",
         image: "/images/hero/kwta-2.jpg",
+        metaDescription: fr
+          ? "Réservez Baladji Kwata pour vos concerts, festivals et partenariats de marque. Contact booking : téléphone, WhatsApp et email."
+          : "Book Baladji Kwata for your concerts, festivals and brand partnerships. Booking contact: phone, WhatsApp and email.",
       },
     },
 
@@ -358,6 +379,9 @@ export function getContent(locale: Locale) {
           slug: "meknel",
           name: "Meknel",
           role: fr ? "Leader · Fondateur · Artiste complet" : "Leader · Founder · Multi-disciplinary artist",
+          metaDescription: fr
+            ? "Meknel, leader et fondateur de Baladji Kwata depuis 2007 — artiste complet (peinture, musique, réalisation) à la tête du collectif et de BLDK Industrie."
+            : "Meknel, leader and founder of Baladji Kwata since 2007 — a multi-disciplinary artist (painting, music, filmmaking) heading the collective and BLDK Industrie.",
           img: "/images/members/meknel.jpg",
           bio: fr
             ? [
@@ -373,6 +397,9 @@ export function getContent(locale: Locale) {
           slug: "dogui",
           name: "Dogui le Baladjien",
           role: fr ? "Rappeur · Réalisateur · Beatmaker" : "Rapper · Director · Beatmaker",
+          metaDescription: fr
+            ? "Dogui le Baladjien, rappeur et réalisateur de Baladji Kwata, membre du groupe depuis 2014 et cofondateur du studio BLDK Industrie."
+            : "Dogui le Baladjien, rapper and director for Baladji Kwata, in the group since 2014 and co-founder of the BLDK Industrie studio.",
           img: "/images/members/dogui.jpg",
           bio: fr
             ? [
@@ -386,6 +413,9 @@ export function getContent(locale: Locale) {
           slug: "monsieur-muss",
           name: "Monsieur Muss",
           role: fr ? "Chanteur · Arrangeur · Beatmaker" : "Singer · Arranger · Beatmaker",
+          metaDescription: fr
+            ? "Monsieur Muss, chanteur et beatmaker de Baladji Kwata depuis 2017, auteur de singles comme « Wamen » et « T'aimer »."
+            : "Monsieur Muss, singer and beatmaker for Baladji Kwata since 2017, author of singles like \"Wamen\" and \"T'aimer\".",
           img: "/images/members/monsieur-muss.jpg",
           bio: fr
             ? [
@@ -407,6 +437,9 @@ export function getContent(locale: Locale) {
           slug: "blek",
           name: "Blek",
           role: fr ? "Rappeur · Auteur-compositeur" : "Rapper · Singer-songwriter",
+          metaDescription: fr
+            ? "Blek, rappeur et auteur-compositeur de Baladji Kwata, dans le groupe depuis 2022 après plusieurs années en solo chez BLDK Industrie."
+            : "Blek, rapper and songwriter for Baladji Kwata, in the group since 2022 after several years as a solo artist at BLDK Industrie.",
           img: "/images/members/blek.jpg",
           bio: fr
             ? [
@@ -420,6 +453,9 @@ export function getContent(locale: Locale) {
           slug: "devas",
           name: "Devas",
           role: fr ? "DJ · Performeur" : "DJ · Performer",
+          metaDescription: fr
+            ? "Devas (Devastador DJ), DJ et performeur de Baladji Kwata, membre du collectif depuis 2014."
+            : "Devas (Devastador DJ), DJ and performer for Baladji Kwata, part of the collective since 2014.",
           img: "/images/members/devas.jpg",
           bio: fr
             ? [

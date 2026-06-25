@@ -44,7 +44,7 @@ export default function Gallery({ t, bare }: { t: Content["gallery"]; bare?: boo
             >
               <Image
                 src={src}
-                alt="Baladji Kwata"
+                alt={`${t.title} ${i + 1}`}
                 width={600}
                 height={800}
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -70,7 +70,7 @@ export default function Gallery({ t, bare }: { t: Content["gallery"]; bare?: boo
           <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3]" onClick={(e) => e.stopPropagation()}>
             <Image
               src={GALLERY[open]}
-              alt="Baladji Kwata"
+              alt={`${t.title} ${open + 1}`}
               fill
               sizes="100vw"
               className="object-contain"

@@ -27,7 +27,7 @@ export default function Achievements({ t, bare }: { t: Content["achievements"]; 
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--color-line)]">
               <Image
                 src={t.image}
-                alt="Baladji Kwata"
+                alt={`Baladji Kwata — ${t.title}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getContent, MEMBER_SLUGS, SOCIALS } from "@/i18n/content";
-import { seoAlternates } from "@/i18n/seo";
+import { pageMetadata, breadcrumbJsonLd, personJsonLd, seoAlternates } from "@/i18n/seo";
 import Reveal from "@/components/Reveal";
 import { Arrow, Instagram, Facebook, TikTok, YouTube } from "@/components/Icons";
 
@@ -18,16 +18,17 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const t = getContent((isLocale(locale) ? locale : "fr") as Locale);
-  const m = t.members.list.find((x) => x.slug === slug);
   const loc = (isLocale(locale) ? locale : "fr") as Locale;
+  const t = getContent(loc);
+  const m = t.members.list.find((x) => x.slug === slug);
   if (!m) return { title: "Baladji Kwata", alternates: seoAlternates(loc, "groupe") };
-  return {
-    title: `${m.name} — Baladji Kwata`,
-    description: m.bio[0],
-    alternates: seoAlternates(loc, `groupe/${slug}`),
-    openGraph: { title: `${m.name} — Baladji Kwata`, description: m.bio[0], images: [m.img] },
-  };
+  return pageMetadata({
+    locale: loc,
+    path: `groupe/${slug}`,
+    title: m.name,
+    description: m.metaDescription,
+    image: m.img,
+  });
 }
 
 export default async function MemberPage({
@@ -52,6 +53,22 @@ export default async function MemberPage({
 
   return (
     <main className="pt-24 md:pt-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(m, locale as Locale)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd(locale as Locale, [
+              { name: t.nav.home, path: "" },
+              { name: t.pageHeaders.group.title, path: "groupe" },
+              { name: m.name, path: `groupe/${slug}` },
+            ]),
+          ),
+        }}
+      />
       <section className="section-pad !pt-8">
         <div className="container-x">
           <Link
